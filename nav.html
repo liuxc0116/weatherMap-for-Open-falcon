@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/json/json2/json2.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">WeatherMap</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a target="body" href="list_maps.php">ListMap</a></li>
+                <li><a target="body" href="maps_view.php">ViewMap</a></li>
+                <li><a target="body" href="editor.php">CreateMap</a></li>
+                <li><a target="_top" href="/">OpenFalcon</a></li>
+                <!--<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script type="text/javascript">
+    $(function () {
+        $('.dropdown-toggle').dropdown();
+        $('.nav li').click(function () {
+            $(this).addClass('active');
+            $(this).siblings().removeClass('active')
+        });
+    });
+</script>
+</body>
+</html>
