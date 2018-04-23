@@ -35,6 +35,10 @@ if(! $ENABLED)
 // sensible defaults
 $mapdir='configs';
 $ignore_cacti=FALSE;
+if (isset($FROM_FALCON)) {
+    $ignore_cacti = true;
+    $editor_name = "weathermap-falcon-plugin-editor.php";
+}
 $configerror = '';
 
 // these are all set via the Editor Settings dialog, in the editor, now.
@@ -944,13 +948,21 @@ else
 			echo "    .cactilink { display: none; }\n";
 			echo "    .cactinode { display: none; }\n";
 		}
+                if (! isset($FROM_FALCON)) {
+                        echo ".falcon_link{ display: none;}\n";
+                }
 ?>
 	</style>
   <link rel="stylesheet" type="text/css" media="screen" href="editor-resources/oldeditor.css" />
 <script src="editor-resources/jquery-latest.min.js" type="text/javascript"></script>
 <script src="editor-resources/editor.js" type="text/javascript"></script>
 	<script type="text/javascript">
-	
+            function selectValue(){
+                window.open("select_port.php?action=link","","scrollbars=1,status=1,height=700,width=400,top=0,left=0");
+            }
+            function selectNodeValue(){
+                window.open("select_port.php?action=node","","scrollbars=1,status=1,height=700,width=400,top=0,left=0");
+            }
 	var fromplug=<?php echo ($fromplug==TRUE ? 1:0); ?>;
 	var editor_url = '<?php echo $editor_name; ?>';
 	
@@ -1061,6 +1073,7 @@ else
 		  <tr>
 			<th>'Hover' Graph URL</th>
 			<td><input id="node_hover" name="node_hover" type="text" />
+                        <span class="falcon_link"><a href="javascript:void(0);"  onclick="selectNodeValue()">选择数据源</a></span>
 			<span class="cactinode"><a id="node_cactipick">[Pick from Cacti]</a></span></td>
 		  </tr>
 		  <tr>
@@ -1143,7 +1156,7 @@ else
 			<tr>
 			  <th>Data Source</th>
 			  <td><input id="link_target" name="link_target" type="text" /> <span class="cactilink"><a id="link_cactipick">[Pick
-			  from Cacti]</a></span></td>
+			  from Cacti]</a></span><span class="falcon_link"><a href="javascript:void(0);"  onclick="selectValue()">选择数据源</a></span></td>
 			</tr>
 			<tr>
 			  <th>Link Width</th>
