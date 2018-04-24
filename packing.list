@@ -239,13 +239,13 @@
 ./weathermap-falcon-plugin-editor.php
 ./maps_action.php
 ./list_maps.php
-./maps_view.php 
+./maps_view.php
 ./select_port.php
 ./index.html
 ./nav.html
 ./poller.php
 ./lib/config.php
-./lib/falcon.api.php 
+./lib/falcon.api.php
 ./lib/mysql.class.php
 ./lib/datasources/WeatherMapDataSource_falcon.php
 ./images/general_switch_70.png
