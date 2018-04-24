@@ -26,7 +26,7 @@
         $alldata = array();
         while ($rw = $con->fetch_array($query)) {
             $alldata[] = $rw["config_name"];
-            echo "<tr><td><a href='editor.php?mapname=" . $rw["config_name"] . "'>" . $rw["config_name"]. "</a></td><td><a class='del_map' pri-data='" . $rw['id'] . "' href='javascript:void(0);'>删除</a></td></tr>";
+            echo "<tr><td><a href='weathermap-falcon-plugin-editor.php?mapname=" . $rw["config_name"] . "'>" . $rw["config_name"]. "</a></td><td><a class='del_map' pri-data='" . $rw['id'] . "' href='javascript:void(0);'>删除</a></td></tr>";
         }
         $con->close();
         ?>
