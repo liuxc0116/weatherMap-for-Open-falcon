@@ -23,7 +23,7 @@ body { 		font-family: 'Gill Sans', Verdana, sans-serif; margin:0; }
 #dlgTextEdit textarea { padding: 3px;}
 
 /* some fudges for the Welcome screen*/
-#dlgStart { z-index: 1; position: absolute; top: 90px; left: 60px; width: 600px;}
+#dlgStart { z-index: 1; position: absolute; top: 0px; left: 0px; width: 600px;}
 #dlgStart .dlgBody ul { list-style: none;  }
 #dlgStart .dlgBody ul a { text-decoration: none; color: white; font-weight: bold;}
 
