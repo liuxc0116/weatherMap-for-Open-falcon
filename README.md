@@ -1,35 +1,54 @@
-## PHP Network Weathermap 0.98
+##Weathermap for Open Falcon
+在Weathermap 0.98的基础上增加了支持open falcon api当数据源, 增加了一些必要的视图界面——添加map到数据库，查看map，创建map, 修改map等
 
-This is PHP Network Weathermap, version 0.98 by Howard Jones (howie@thingy.com)
+使用poller.php生成入库map的缩略图，展示图，html展示页面等
 
-See the docs sub-directory for full HTML documentation, FAQ and example config.
+下面是一些页面的展示
+![listMap](https://raw.githubusercontent.com/liuxc0116/public/master/weathermap/weathermap_list.png)
 
-See CHANGES for the most recent updates, listed by version.
+![addMap](https://raw.githubusercontent.com/liuxc0116/public/master/weathermap/wearthermap_add_map.png)
 
-See COPYING for the license under which php-weathermap is released.
+![listSmallPng](https://raw.githubusercontent.com/liuxc0116/public/master/weathermap/weathermap_list-png.png)
 
-There is much more information, tutorials and updates available at:
-    http://www.network-weathermap.com/
+![showFullPng](https://raw.githubusercontent.com/liuxc0116/public/master/weathermap/weathermap_full_png.png)
+
+![createMap](https://raw.githubusercontent.com/liuxc0116/public/master/weathermap/weathermap_create_map.png)
+
+在此，感谢Howard Jones (howie@thingy.com)开发了Weathermap
+Weathermap官方的[github](https://github.com/howardjones/network-weathermap)地址
+
+安装方法
+
+```
+git clone https://github.com/liuxc0116/weatherMap-for-Open-falcon
+cd weatherMap-for-Open-falcon
+make release
+```
+
+添加数据库
+`mysql -uroot -p < weathermap.sql`
+
+修改数据库配置
+
+```
+vim lib/config.php
+<?php
+  define('g_dbhost' , '127.0.0.1');
+  define('g_dbuser' , 'root');
+  define('g_dbpassword' , '');
+  define('g_dbname' , 'weathermap');
+  define('g_dbcharset' , 'utf8');
+?>
+```
+
+修改open falcon api配置
+
+```
+vim lib/falcon.api.php
+define("g_falcon_api_name", "falcon_api_name");
+define("g_falcon_api_passwd", "falcon_api_password");
+define("g_falcon_api_host", "http://yourhost:8080");
+define("g_grafana_graph_host", "http://yourhost:3000");
+```
 
 
-----
-
-PHP Weathermap contains components from other software developers:
-
-overlib.js is part of Overlib 4.21, copyright Erik Bosrup 1998-2004. All rights reserved.
-See http://www.bosrup.com/web/overlib/?License
-
-The Bitstream Vera Open Source fonts (Vera*.ttf) are copyright Bitstream, Inc.
-See http://www.bitstream.com/font_rendering/products/dev_fonts/vera.html
-
-The manual uses the Kube CSS Framework - http://imperavi.com/kube/
-and ParaType's PT Sans font: http://www.fontsquirrel.com/fonts/PT-Sans
-
-jquery-latest.min.js is the jQuery javascript library - written by John Resig and collaborators.
-http://docs.jquery.com/Licensing
-
-Some of the icons used in the editor, and also supplied in the images/ folder are
-from the excellent Fam Fam Fam Silk icon collection by Mark James: 
-   http://www.famfamfam.com/lab/icons/silk/
-These are released under the Creative Commons Attribution 2.5 License
-   http://creativecommons.org/licenses/by/2.5/
