@@ -30,6 +30,7 @@ class HTML_ImageMap_Area
 		}
 		if($this->href != "")
 		{
+			$h .= "target=\"_blank\" ";
 			$h .= "href=\"".$this->href."\" ";
 		}
 		else { $h .= "nohref "; }
