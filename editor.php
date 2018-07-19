@@ -25,6 +25,13 @@ if (isset($FROM_CACTI) && $FROM_CACTI == true) {
 	$cacti_found = false;
 }
 
+$ignore_cacti=FALSE;
+if (isset($FROM_FALCON)) {
+    $ignore_cacti = true;
+    $ENABLED=true;
+    $editor_name = "weathermap-falcon-plugin-editor.php";
+}
+
 if(! $ENABLED)
 {
     print "<p>The editor has not been enabled yet. You need to set ENABLED=true at the top of editor.php</p>";
@@ -34,11 +41,6 @@ if(! $ENABLED)
 
 // sensible defaults
 $mapdir='configs';
-$ignore_cacti=FALSE;
-if (isset($FROM_FALCON)) {
-    $ignore_cacti = true;
-    $editor_name = "weathermap-falcon-plugin-editor.php";
-}
 $configerror = '';
 
 // these are all set via the Editor Settings dialog, in the editor, now.
