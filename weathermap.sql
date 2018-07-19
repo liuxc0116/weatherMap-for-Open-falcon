@@ -1,6 +1,8 @@
 --
 -- Table structure for table `map`
 --
+CREATE DATABASE `weathermap`;
+USE `weathermap`;
 
 DROP TABLE IF EXISTS `map`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
