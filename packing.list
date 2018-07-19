@@ -251,3 +251,4 @@
 ./images/general_switch_70.png
 ./images/general_router_70.png
 ./configs/falcon.conf
+./weathermap.sql
