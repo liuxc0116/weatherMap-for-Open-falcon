@@ -33,7 +33,7 @@ class WeatherMapDataSource_falcon extends WeatherMapDataSource {
         if(preg_match("/^falcon@(.*)@(.*)@(.*)$/",$targetstring,$matches))
         {
             $host = $matches[1];
-            $step = $matches[2];
+            $step = (int)$matches[2];
             $counter = $matches[3];
             $data_time = time();
             $start = $data_time - 2 * $step;
@@ -46,7 +46,7 @@ class WeatherMapDataSource_falcon extends WeatherMapDataSource {
                 "step" => $step,
                 "start_time" => $start,
                 "end_time" =>$end,
-                "consol_fun" => "MAX",
+                "consol_fun" => "AVERAGE",
                 "hostnames" => array(
                     $host
                 ),
