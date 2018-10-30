@@ -81,7 +81,7 @@ $token = get_token();
     }
 
     $(document).ready(function() {
-        var url = "<?php echo g_falcon_api_host; ?>/api/v1/graph/endpoint?q=.*";
+        var url = "<?php echo g_falcon_api_host; ?>/api/v1/graph/endpoint?q=.*(pe[0-9]|sw[0-9])";
         $.ajax(url, {
             type: 'get',
             headers: headers,
@@ -124,7 +124,7 @@ $token = get_token();
             var action = getUrlParam('action');
             if (action == "node") {
                 var endpoint = this.options[this.selectedIndex].innerText;
-                var url = "<?php echo g_grafana_graph_host; ?>/dashboard/db/hosts?orgId=1";
+                var url = "<?php echo g_grafana_graph_host; ?>/dashboard/db/view-host?orgId=1";
                 url += "&var-host=" + endpoint;
                 window.opener.document.all.node_infourl.value = url;
                 //window.opener.document.all.node_hover.value = url;
@@ -136,7 +136,7 @@ $token = get_token();
 
     $("#port").change(function () {
         if (this.value != '') {
-            var url = "<?php echo g_grafana_graph_host; ?>/dashboard/db/bw?orgId=1";
+            var url = "<?php echo g_grafana_graph_host; ?>/dashboard/db/view-port-bandwidth?orgId=1";
             //&var-hosts=172.16.1.202&
             //&var-ifName=13,ifName%3D10GE1%2F0%2F9
             var val = this.options[this.selectedIndex].value;
@@ -146,8 +146,8 @@ $token = get_token();
             var ifName = val.split('ifIndex=')[1];
             var ret_val = "falcon@" + endpoint + '@' + step + '@' + port_name;
             window.opener.document.all.link_target.value = ret_val;
-            url += "&var-hosts=" + endpoint;
-            url += "&var-ifName=" + ifName;
+            url += "&var-host=" + endpoint;
+            url += "&var-port=" + ifName;
             window.opener.document.all.link_infourl.value = url;
             //window.opener.document.all.link_hover.value = url;
 
